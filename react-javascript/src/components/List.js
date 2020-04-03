@@ -11,7 +11,7 @@ export class List extends React.Component {
         const { peoples } = this.props;
 
         return peoples.map((people, index) => {
-            const { name, email } = people;
+            const { name, company, position, city, phone, email } = people;
 
             return (
                 <li key={index}>
@@ -19,12 +19,38 @@ export class List extends React.Component {
                         <div className="min-w-0 flex-1 flex items-center">
                             <div className="min-w-0 flex-1 md:grid md:grid-cols-2 md:gap-4">
                                 <div>
-                                    <div className="text-md leading-5 font-medium text-indigo-600 truncate">
+                                    <div className="text-lg leading-5 font-medium truncate">
                                         {name}
+                                    </div>
+                                    <div className="mt-2 flex items-center text-sm leading-5 font-medium text-gray-500">
+                                        <span className="truncate">
+                                            {company}
+                                        </span>
+                                    </div>
+                                    <div className="mt-2 flex items-center text-sm leading-5 font-medium text-gray-500">
+                                        <span className="truncate">
+                                            {position}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="mt-2 flex items-center text-sm leading-5 text-gray-500">
+                                        <span className="truncate">
+                                            City: {city}
+                                        </span>
+                                    </div>
+                                    <div className="mt-2 flex items-center text-sm leading-5 text-gray-500">
+                                        Email:
+                                        <a
+                                            href={`mailto:${email}`}
+                                            className="truncate text-indigo-600 ml-1"
+                                        >
+                                            {email}
+                                        </a>
                                     </div>
                                     <div className="mt-2 flex items-center text-sm leading-5 text-gray-500">
                                         <span className="truncate">
-                                            {email}
+                                            Phone: {phone}
                                         </span>
                                     </div>
                                 </div>
