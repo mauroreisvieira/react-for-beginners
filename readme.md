@@ -4,10 +4,11 @@ Starter files for the React For Beginners course.
 
 ## Cookbook
 
-- 👉 Install [Node.js](https://nodejs.org/en/)
-- 👉 Install dependencies with: [Yarn](https://yarnpkg.com/) or [NPM](https://www.npmjs.com/)
-- 👉 React + ReactDOM
-- 👉 Typescript
+-   👉 Install [Node.js](https://nodejs.org/en/)
+-   👉 Install dependencies with: [Yarn](https://yarnpkg.com/) or [NPM](https://www.npmjs.com/)
+-   👉 React + ReactDOM
+-   👉 Prettier
+-   👉 ESLint
 
 ## React Class Component
 
@@ -100,13 +101,15 @@ const App = () => {
 
 ## Hooks
 
-- `useState` — This hook returns a state full value and a function to update it.
-Originally, we had to initialize the apps state separately and then use the setState function to
-update the state’s value.
+-   `useState` — This hook returns a state full value and a function to update it.
+    Originally, we had to initialize the apps state separately and then use the setState function to
+    update the state’s value.
 
-- `useEffect` — This hook takes a function that contains code (fetching data or subscribing to a service)
-and returns a function that will be executed every time before the effect runs and when the component
-is unmounted — in order to re-initialize itself from the last iteration.
+-   `useEffect` — This hook takes a function that contains code (fetching data or subscribing to a service)
+    and returns a function that will be executed every time before the effect runs and when the component
+    is unmounted — in order to re-initialize itself from the last iteration.
 
-- `useContext` — This hook accepts a context object and returns the current context value,
-as given by the nearest context provider for the given context.
+-   `useContext` — This hook accepts a context object and returns the current context value,
+    as given by the nearest context provider for the given context.
+
+## JSX

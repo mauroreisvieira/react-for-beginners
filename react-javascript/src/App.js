@@ -3,11 +3,13 @@ import React from 'react';
 import { Header } from './components/Header';
 import { Form } from './components/Form';
 import { List } from './components/List';
+import { Pagination } from './components/Pagination';
 
 class App extends React.Component {
     constructor() {
         super();
         this.state = {
+            page: 1,
             people: [],
             peopleFiltered: [],
         };
@@ -31,14 +33,21 @@ class App extends React.Component {
         const { people } = this.state;
 
         this.setState(() => ({
-            peopleFiltered: people.filter((person) =>
-                person.name.toLowerCase().includes(value.toLowerCase())
-            ),
+            peopleFiltered: people.filter((person) => {
+                return (
+                    person.name.toLowerCase().includes(value.toLowerCase()) ||
+                    person.position.toLowerCase().includes(value.toLowerCase())
+                );
+            }),
         }));
     };
 
     render() {
-        const { peopleFiltered } = this.state;
+        const { peopleFiltered, page } = this.state;
+
+        setTimeout(() => {
+            this.setState({page: 4});
+        }, 4000)
 
         return (
             <div>
@@ -55,6 +64,7 @@ class App extends React.Component {
                             </div>
                             <Form onChange={this.handleChangeInput} />
                             <List people={peopleFiltered} />
+                            <Pagination currentPage={page} />
                         </div>
                     </div>
                 </main>
