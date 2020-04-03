@@ -17,7 +17,7 @@ export class Form extends React.Component {
             <div className="px-4 pt-5 pb-3 sm:px-6">
                 <div>
                     <label htmlFor="filter" className="sr-only">
-                        Search...
+                        Filter people
                     </label>
                     <div className="flex shadow-sm">
                         <div className="relative flex-grow focus-within:z-10">

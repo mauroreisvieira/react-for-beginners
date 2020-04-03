@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// Import Components
+// Import React Component
 import App from './App';
 
 // Import Styles

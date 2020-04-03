@@ -8,10 +8,10 @@ export class List extends React.Component {
     }
 
     renderPeopleList() {
-        const { peoples } = this.props;
+        const { people } = this.props;
 
-        return peoples.map((people, index) => {
-            const { name, company, position, city, phone, email } = people;
+        return people.map((person, index) => {
+            const { name, company, position, city, phone, email } = person;
 
             return (
                 <li key={index}>
@@ -24,12 +24,12 @@ export class List extends React.Component {
                                     </div>
                                     <div className="mt-2 flex items-center text-sm leading-5 font-medium text-gray-500">
                                         <span className="truncate">
-                                            {company}
+                                            {position}
                                         </span>
                                     </div>
                                     <div className="mt-2 flex items-center text-sm leading-5 font-medium text-gray-500">
                                         <span className="truncate">
-                                            {position}
+                                            {company}
                                         </span>
                                     </div>
                                 </div>
@@ -42,7 +42,7 @@ export class List extends React.Component {
                                     <div className="mt-2 flex items-center text-sm leading-5 text-gray-500">
                                         Email:
                                         <a
-                                            href={`mailto:${email}`}
+                                            href={'mailto:' + email}
                                             className="truncate text-indigo-600 ml-1"
                                         >
                                             {email}
@@ -68,5 +68,5 @@ export class List extends React.Component {
 }
 
 List.propTypes = {
-    peoples: PropTypes.array,
+    people: PropTypes.array,
 };

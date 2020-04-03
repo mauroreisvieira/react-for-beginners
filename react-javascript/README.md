@@ -1,4 +1,4 @@
-## React Javascript
+# React Javascript
 
 In the project directory, you can run:
 

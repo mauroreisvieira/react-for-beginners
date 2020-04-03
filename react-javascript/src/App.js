@@ -8,8 +8,8 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            initial: [],
-            peoples: [],
+            people: [],
+            peopleFiltered: [],
         };
     }
 
@@ -21,24 +21,24 @@ class App extends React.Component {
             .then((results) => {
                 const { people } = results;
                 this.setState({
-                    initial: people,
-                    peoples: people,
+                    people: people,
+                    peopleFiltered: people,
                 });
             });
     }
 
     handleChangeInput = (value) => {
-        const { initial } = this.state;
+        const { people } = this.state;
 
         this.setState(() => ({
-            peoples: initial.filter((option) =>
-                option.name.toLowerCase().includes(value.toLowerCase())
+            peopleFiltered: people.filter((person) =>
+                person.name.toLowerCase().includes(value.toLowerCase())
             ),
         }));
     };
 
     render() {
-        const { peoples } = this.state;
+        const { peopleFiltered } = this.state;
 
         return (
             <div>
@@ -54,7 +54,7 @@ class App extends React.Component {
                                 </h3>
                             </div>
                             <Form onChange={this.handleChangeInput} />
-                            <List {...{ peoples }} />
+                            <List people={peopleFiltered} />
                         </div>
                     </div>
                 </main>
