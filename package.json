@@ -1,0 +1,20 @@
+{
+    "name": "react-for-beginners",
+    "version": "1.0.0",
+    "main": "index.js",
+    "bugs": {
+        "url": "https://github.com/mauroreisvieira/react-for-beginners/issues"
+    },
+    "author": "Mauro Reis Vieira <mauroreisvieira@gmail.com>",
+    "license": "MIT",
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^8.3.5",
+        "@commitlint/config-conventional": "^8.3.4",
+        "husky": "^4.2.1"
+    }
+}
