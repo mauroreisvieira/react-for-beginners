@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Header } from './Header';
-import { Form } from './Form';
-import { List } from './List';
+import { Header } from './components/Header';
+import { Form } from './components/Form';
+import { List } from './components/List';
 
 class App extends React.Component {
     constructor() {
@@ -32,11 +32,11 @@ class App extends React.Component {
                     <Header title="React for Beginners" />
                 </div>
                 <main className="-mt-32">
-                    <div className="max-w-7xl mx-auto px-4 pb-12 sm:px-6 lg:px-8">
+                    <div className="max-w-5xl mx-auto px-4 pb-12 sm:px-6 lg:px-8">
                         <div className="bg-white shadow overflow-hidden rounded-md">
-                            <div className="bg-white px-4 pt-5 pb-4 border-b border-gray-200">
-                                <h3 className="text-xl leading-6 font-medium text-gray-900">
-                                    People
+                            <div className="bg-white px-4 sm:px-6 py-6 border-b border-gray-200">
+                                <h3 className="text-2xl leading-6 font-medium text-gray-900">
+                                    People List
                                 </h3>
                             </div>
                             <Form />
