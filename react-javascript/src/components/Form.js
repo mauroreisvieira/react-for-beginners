@@ -38,7 +38,7 @@ export class Form extends React.Component {
                                 onInput={this.handleChange}
                                 id="filter"
                                 className="appearance-none rounded-md block w-full pl-10 pr-3 py-2 border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5 transition ease-in-out duration-150"
-                                placeholder="John Doe"
+                                placeholder="Search..."
                             />
                         </div>
                     </div>

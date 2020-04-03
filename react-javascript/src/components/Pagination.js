@@ -24,7 +24,10 @@ export class Pagination extends React.Component {
     }
 
     handleClickPage = value => {
+        const { onChange } = this.props;
+
         this.setState({ currentPage: value });
+        onChange(value);
     };
 
     computedClassNames(page) {
@@ -41,7 +44,7 @@ export class Pagination extends React.Component {
     renderPagination() {
         const { numberResults, perPage } = this.props;
         return Array.from(
-            { length: Math.ceil(numberResults / perPage) },
+            { length: Math.abs(numberResults / perPage) },
             (page, index) => index + 1
         ).map((page, index) => {
             return (
@@ -131,6 +134,7 @@ export class Pagination extends React.Component {
 }
 
 Pagination.propTypes = {
+    onChange: PropTypes.func,
     currentPage: PropTypes.number,
     perPage: PropTypes.number,
     numberResults: PropTypes.number,

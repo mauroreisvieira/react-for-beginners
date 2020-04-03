@@ -24,10 +24,15 @@ class App extends React.Component {
                 const { people } = results;
                 this.setState({
                     people: people,
+                    peopleList: people,
                     peopleFiltered: people,
                 });
             });
     }
+
+    handleChangePage = (page) => {
+        console.log('page', page);
+    };
 
     handleChangeInput = (value) => {
         const { people } = this.state;
@@ -44,7 +49,7 @@ class App extends React.Component {
     };
 
     render() {
-        const { peopleFiltered, page } = this.state;
+        const { peopleFiltered,page } = this.state;
 
         return (
             <div>
@@ -61,7 +66,12 @@ class App extends React.Component {
                             </div>
                             <Form onChange={this.handleChangeInput} />
                             <List people={peopleFiltered} />
-                            <Pagination currentPage={page} perPage={2} numberResults={peopleFiltered.length}/>
+                            <Pagination
+                                onChange={this.handleChangePage}
+                                currentPage={page}
+                                perPage={2}
+                                numberResults={peopleFiltered.length}
+                            />
                         </div>
                     </div>
                 </main>

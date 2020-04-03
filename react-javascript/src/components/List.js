@@ -12,7 +12,6 @@ export class List extends React.Component {
 
         return people.map((person, index) => {
             const { name, company, position, city, phone, email } = person;
-
             return (
                 <li key={index}>
                     <div className="flex items-center px-4 py-4 sm:px-6 border-b border-gray-200">
