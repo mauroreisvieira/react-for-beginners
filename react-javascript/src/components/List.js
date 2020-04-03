@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export class List extends React.Component {
     constructor() {
@@ -39,3 +40,7 @@ export class List extends React.Component {
         return <ul>{this.renderPeopleList()}</ul>;
     }
 }
+
+List.propTypes = {
+    peoples: PropTypes.array,
+};
