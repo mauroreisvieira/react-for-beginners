@@ -3,11 +3,7 @@
 Starter files for the React For Beginners
 
 ## 👨🏻‍🍳 Cookbook
-- NPM + Node.js
-- React + ReactDOM
-- Typescript
-
-## 👨🏼‍💻 Usage
-
-- 👉 Install dependencies with: [Yarn]() or [NPM]()
-- 👉 Run in development mode: `yarn start` (then go http://localhost:8080/ and you should see this)
+👉 Install [Node.js](https://nodejs.org/en/)\
+👉 Install dependencies with: [Yarn](https://yarnpkg.com/) or [NPM](https://www.npmjs.com/)\
+👉 React + ReactDOM\
+👉 Typescript
