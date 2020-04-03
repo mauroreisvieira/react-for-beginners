@@ -7,7 +7,10 @@ import { List } from './components/List';
 class App extends React.Component {
     constructor() {
         super();
-        this.state = { peoples: [] };
+        this.state = {
+            initial: [],
+            peoples: [],
+        };
     }
 
     componentDidMount() {
@@ -18,17 +21,28 @@ class App extends React.Component {
             .then((results) => {
                 const { people } = results;
                 this.setState({
+                    initial: people,
                     peoples: people,
                 });
             });
     }
+
+    handleChangeInput = (value) => {
+        const { initial } = this.state;
+
+        this.setState(() => ({
+            peoples: initial.filter((option) =>
+                option.name.toLowerCase().includes(value.toLowerCase())
+            ),
+        }));
+    };
 
     render() {
         const { peoples } = this.state;
 
         return (
             <div>
-                <div className="bg-gray-800 pb-32">
+                <div className="bg-indigo-800 pb-32">
                     <Header title="React for Beginners" />
                 </div>
                 <main className="-mt-32">
@@ -39,7 +53,7 @@ class App extends React.Component {
                                     People List
                                 </h3>
                             </div>
-                            <Form />
+                            <Form onChange={this.handleChangeInput} />
                             <List {...{ peoples }} />
                         </div>
                     </div>

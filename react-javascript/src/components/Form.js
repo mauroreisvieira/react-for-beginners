@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export class Form extends React.Component {
     constructor() {
@@ -7,7 +8,8 @@ export class Form extends React.Component {
     }
 
     handleChange = event => {
-        console.log('You typing: ', event.target.value);
+        const { onChange } = this.props;
+        onChange(event.target.value);
     };
 
     render() {
@@ -45,3 +47,7 @@ export class Form extends React.Component {
         );
     }
 }
+
+Form.propTypes = {
+    onChange: PropTypes.func,
+};
