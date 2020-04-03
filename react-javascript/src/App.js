@@ -36,6 +36,7 @@ class App extends React.Component {
             peopleFiltered: people.filter((person) => {
                 return (
                     person.name.toLowerCase().includes(value.toLowerCase()) ||
+                    person.city.toLowerCase().includes(value.toLowerCase()) ||
                     person.position.toLowerCase().includes(value.toLowerCase())
                 );
             }),
@@ -44,10 +45,6 @@ class App extends React.Component {
 
     render() {
         const { peopleFiltered, page } = this.state;
-
-        setTimeout(() => {
-            this.setState({page: 4});
-        }, 4000)
 
         return (
             <div>
@@ -64,7 +61,7 @@ class App extends React.Component {
                             </div>
                             <Form onChange={this.handleChangeInput} />
                             <List people={peopleFiltered} />
-                            <Pagination currentPage={page} />
+                            <Pagination currentPage={page} perPage={2} numberResults={peopleFiltered.length}/>
                         </div>
                     </div>
                 </main>

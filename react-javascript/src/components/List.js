@@ -27,32 +27,40 @@ export class List extends React.Component {
                                             {position}
                                         </span>
                                     </div>
-                                    <div className="mt-2 flex items-center text-sm leading-5 font-medium text-gray-500">
-                                        <span className="truncate">
-                                            {company}
-                                        </span>
-                                    </div>
+                                    {company && (
+                                        <div className="mt-2 flex items-center text-sm leading-5 font-medium text-gray-500">
+                                            <span className="truncate">
+                                                {company}
+                                            </span>
+                                        </div>
+                                    )}
                                 </div>
                                 <div>
-                                    <div className="mt-2 flex items-center text-sm leading-5 text-gray-500">
-                                        <span className="truncate">
-                                            City: {city}
-                                        </span>
-                                    </div>
-                                    <div className="mt-2 flex items-center text-sm leading-5 text-gray-500">
-                                        Email:
-                                        <a
-                                            href={'mailto:' + email}
-                                            className="truncate text-indigo-600 ml-1"
-                                        >
-                                            {email}
-                                        </a>
-                                    </div>
-                                    <div className="mt-2 flex items-center text-sm leading-5 text-gray-500">
-                                        <span className="truncate">
-                                            Phone: {phone}
-                                        </span>
-                                    </div>
+                                    {city && (
+                                        <div className="mt-2 flex items-center text-sm leading-5 text-gray-500">
+                                            <span className="truncate">
+                                                City: {city}
+                                            </span>
+                                        </div>
+                                    )}
+                                    {email && (
+                                        <div className="mt-2 flex items-center text-sm leading-5 text-gray-500">
+                                            Email:
+                                            <a
+                                                href={'mailto:' + email}
+                                                className="truncate text-indigo-600 ml-1"
+                                            >
+                                                {email}
+                                            </a>
+                                        </div>
+                                    )}
+                                    {phone && (
+                                        <div className="mt-2 flex items-center text-sm leading-5 text-gray-500">
+                                            <span className="truncate">
+                                                Phone: {phone}
+                                            </span>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>

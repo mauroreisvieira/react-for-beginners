@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as classNames from 'classnames';
 
 export class Pagination extends React.Component {
     constructor() {
@@ -26,51 +27,63 @@ export class Pagination extends React.Component {
         this.setState({ currentPage: value });
     };
 
-    renderPagination() {
-        // const { currentPage } = this.state;
+    computedClassNames(page) {
+        const { currentPage } = this.state;
 
-        return [1, 2, 4, 5, 6].map((value, index) => {
+        return classNames(
+            '-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:outline-none transition ease-in-out duration-150',
+            {
+                'text-gray-800 hover:text-gray-800 is-active':
+                    page === currentPage,
+            }
+        );
+    }
+    renderPagination() {
+        const { numberResults, perPage } = this.props;
+        return Array.from(
+            { length: Math.ceil(numberResults / perPage) },
+            (page, index) => index + 1
+        ).map((page, index) => {
             return (
                 <button
                     key={index}
                     onClick={() => {
-                        this.handleClickPage(value);
+                        this.handleClickPage(page);
                     }}
                     type="button"
-                    className="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
+                    className={this.computedClassNames(page)}
                 >
-                    {value}
+                    {page}
                 </button>
             );
         });
     }
 
     render() {
+        const { perPage, numberResults } = this.props;
+
+        const { currentPage } = this.state;
         return (
             <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
                 <div className="flex-1 flex justify-between sm:hidden">
-                    <a
-                        href="#"
-                        className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
-                    >
+                    <button className="relative inline-flex justify-center flex-1 items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
                         Previous
-                    </a>
-                    <a
-                        href="#"
-                        className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
-                    >
+                    </button>
+                    <button className="ml-3 relative inline-flex justify-center flex-1 items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
                         Next
-                    </a>
+                    </button>
                 </div>
                 <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
                     <div>
                         <p className="text-sm leading-5 text-gray-700">
                             Showing
-                            <span className="font-medium mx-1">1</span>
-                            to
-                            <span className="font-medium mx-1">10</span>
+                            <span className="font-medium mx-1">
+                                {Math.min(currentPage * perPage, numberResults)}
+                            </span>
                             of
-                            <span className="font-medium mx-1">97</span>
+                            <span className="font-medium mx-1">
+                                {numberResults}
+                            </span>
                             results
                         </p>
                     </div>
@@ -119,4 +132,7 @@ export class Pagination extends React.Component {
 
 Pagination.propTypes = {
     currentPage: PropTypes.number,
+    perPage: PropTypes.number,
+    numberResults: PropTypes.number,
+    totalResults: PropTypes.number,
 };
